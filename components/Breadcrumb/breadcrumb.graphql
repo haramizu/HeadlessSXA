@@ -1,0 +1,21 @@
+fragment breadcrumbFields on Item {
+  field(name: "NavigationTitle") {
+    ... on TextField {
+      value
+    }
+  }
+  url {
+    path
+  }
+}
+query BreadcrumbQuery($contextItem: String!, $language: String!) {
+  # Assume the item id is available on the page
+  item(path: $contextItem, language: $language) {
+    ancestors(
+      hasLayout: true
+      includeTemplateIDs: "B4283FEF-AE4E-4992-82E7-33B170C7A7DE"
+    ) {
+      ...breadcrumbFields
+    }
+  }
+}
