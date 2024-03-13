@@ -31,7 +31,7 @@ export const Default = (props: BreadcrumbProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext();
   const locale = sitecoreContext.language || "en";
 
-  if (data) {
+  if (data.item.ancestors.length > 0) {
     return (
       <>
         <div className="component-content">
@@ -44,8 +44,7 @@ export const Default = (props: BreadcrumbProps): JSX.Element => {
   return (
     <div className={styles} id={id ? id : undefined}>
       <div className="component-content">
-        <div>No Item </div>
-        <div>id: {sitecoreContext.itemId}</div>
+        <div>Breadcrumb</div>
       </div>
     </div>
   );
